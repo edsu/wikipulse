@@ -1,13 +1,11 @@
 {
-  "ircNick": "wikipedia-dashboard", 
-  "ircUserName": "wikipedia-dashboard", 
-  "ircRealName": "http://github.com/edsu/wikipedia-dashboard", 
-  "log": false, 
+  "ircNick": "wikipulse", 
+  "ircUserName": "wikipulse", 
+  "ircRealName": "http://github.com/edsu/wikipulse", 
   "wikipedias": [
     "#ar.wikipedia",
     "#bg.wikipedia",
     "#ca.wikipedia",
-    "#commons.wikimedia",
     "#cs.wikipedia",
     "#da.wikipedia",
     "#de.wikipedia",
@@ -40,6 +38,7 @@
     "#uk.wikipedia",
     "#vi.wikipedia",
     "#vo.wikipedia",
-    "#zh.wikipedia"
+    "#zh.wikipedia",
+    "#commons.wikimedia"
    ]
 }
