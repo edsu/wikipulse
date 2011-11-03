@@ -2,6 +2,7 @@
   "ircNick": "wikipulse", 
   "ircUserName": "wikipulse", 
   "ircRealName": "http://github.com/edsu/wikipulse", 
+  "webServerPort": 3000,
   "wikipedias": [
     "#ar.wikipedia",
     "#bg.wikipedia",
