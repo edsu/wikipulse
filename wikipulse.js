@@ -66,6 +66,7 @@ function purgeOld() {
   var t = new Date().getTime();
   var hourInMillis = 1000 * 60 * 60;
   var cutoff = t - hourInMillis; 
+  db.zremrangebyscore('wikipedia', 0, cutoff);
   _.each(config.wikipedias, function(wikipedia) {
     db.zremrangebyscore(wikipedia, 0, cutoff);
   });
