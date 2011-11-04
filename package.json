@@ -6,6 +6,7 @@
     "express": "2.3.x",
     "jade": "0.12.x",
     "redis": "0.6.x",
+    "redis-url": "0.0.1",
     "irc-js": "0.2.x",
     "underscore": "1.2.x"
   }

@@ -3,10 +3,10 @@ var fs = require('fs'),
     irc = require('irc-js'),
     express = require('express'),
     _ = require('underscore')._,
-    redis = require('redis'),
+    redis = require('redis-url'),
     ranges = [60000, 300000, 900000, 3600000, 86400000]; // millis
 
-var db = redis.createClient(process.env.REDISTOGO_URL || 6379);
+var db = redis.connect(process.env.REDISTOGO_URL);
 
 function main() {
   purgeOld();
