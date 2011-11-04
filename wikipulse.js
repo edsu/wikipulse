@@ -8,8 +8,6 @@ var fs = require('fs'),
 var db = redis.createClient(process.env.REDISTOGO_URL || "redis://localhost:6379");
 
 function main() {
-  console.log("flush all");
-  db.flushall(); // hopefully I can remove this at some point
   purgeOld();
   startMonitoring();
   startWebApp();
@@ -69,7 +67,7 @@ function purgeOld() {
   var t = new Date().getTime();
   var maxTime = 1000 * 60 * 1;
   var cutoff = t - maxTime; 
-  db.zremrangebyscore('wikipedia', 0, cutoff);
+  db.zremrangebyscore('#wikipedia', 0, cutoff);
   _.each(config.wikipedias, function(wikipedia) {
     db.zremrangebyscore(wikipedia, 0, cutoff);
   });
