@@ -64,12 +64,12 @@ function getStats(req, res) {
 
 function purgeOld() {
   var t = new Date().getTime();
-  var dayInMillis = 1000 * 60 * 60 * 24;
-  var cutoff = t - dayInMillis; 
+  var hourInMillis = 1000 * 60 * 60;
+  var cutoff = t - hourInMillis; 
   _.each(config.wikipedias, function(wikipedia) {
     db.zremrangebyscore(wikipedia, 0, cutoff);
   });
-  setTimeout(purgeOld, dayInMillis);
+  setTimeout(purgeOld, hourInMillis);
 }
 
 var config = getConfig();
