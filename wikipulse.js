@@ -6,7 +6,7 @@ var fs = require('fs'),
     redis = require('redis-url'),
     ranges = [60000, 300000, 900000, 3600000, 86400000]; // millis
 
-var db = redis.connect(process.env.REDISTOGO_URL);
+var db = redis.createClient(process.env.REDISTOGO_URL || "redis://localhost:6379");
 
 function main() {
   purgeOld();
