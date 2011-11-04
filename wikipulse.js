@@ -8,6 +8,7 @@ var fs = require('fs'),
 var db = redis.createClient(process.env.REDISTOGO_URL || "redis://localhost:6379");
 
 function main() {
+  db.flushall(); // hopefully I can remove this at some point
   purgeOld();
   startMonitoring();
   startWebApp();
