@@ -64,7 +64,7 @@ function getStats(req, res) {
 
 function purgeOld() {
   var t = new Date().getTime();
-  var maxTime = 1000 * 60 * 10 ;
+  var maxTime = 1000 * 60 * 1;
   var cutoff = t - maxTime; 
   db.zremrangebyscore('wikipedia', 0, cutoff);
   _.each(config.wikipedias, function(wikipedia) {
