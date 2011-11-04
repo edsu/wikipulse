@@ -7,6 +7,7 @@ var fs = require('fs'),
     ranges = [60000, 300000, 900000, 3600000, 86400000]; // millis
 
 function main() {
+  purgeOld();
   startMonitoring();
   startWebApp();
 }
@@ -48,10 +49,11 @@ function processUpdate(msg) {
   wikipedia = msg.params[0];
   t = new Date().getTime();
   redis.zadd(wikipedia, t, t);
+  redis.zadd('#wikipedia', t, t);
 }
 
 function getStats(req, res) {
-  wikipedia = req.params.wikipedia;
+  wikipedia = req.params.wikipedia.replace("-", ".");
   range = req.params.range;
   t = new Date().getTime();
   redis.zrangebyscore('#' + wikipedia, t - range, t, function(e, r) {
@@ -60,14 +62,13 @@ function getStats(req, res) {
 }
 
 function purgeOld() {
-  t = new Date().getTime();
+  var t = new Date().getTime();
+  var dayInMillis = 1000 * 60 * 60 * 24;
+  var cutoff = t - dayInMillis; 
   _.each(config.wikipedias, function(wikipedia) {
-    _.each(ranges, function(range) {
-      key = wikipedaia + "-" + range;
-      cutoff = t - range;
-      redis.zremrangebyscore(key, 0, cutoff);
-    });
+    redis.zremrangebyscore(wikipedia, 0, cutoff);
   });
+  setTimeout(purgeOld, dayInMillis);
 }
 
 function zresults(resp) {

@@ -1,11 +1,91 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAoRT7-hYfG4tfwOkCrzrBeRSaVPDDfsqlPb2qAXtI-qSxF2uKqhRhXxkut6P0pr_QcC2rTOU1ad0EWw"></script>
         <script type="text/javascript" src="/js/wikipulse.js"></script>
+        <script type="text/javascript">
+            google.load("jquery", "1.6.4");
+            google.load('visualization', '1', {packages:['gauge']});
+            google.setOnLoadCallback(function() {
+              drawChart("wikipedia", 60000, 300, 500, 500)
+              $(".chart").each(function(i, e) {
+                wikipedia = $(e).attr("id");
+                drawChart(wikipedia, 60000, 180, 120, 120);
+              });
+            });
+        </script>
+        <style>
+          #title {
+            margin-top: 10px;
+            margin-left: 120px;
+            text-align: left;
+            font-family: Orbitron;
+            font-size: 35pt; 
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          #overview {
+            width: 500px;
+            height: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            float: left;
+          }
+          #summary {
+            font-size: 20pt;
+            font-family: Orbitron;
+            text-align: center;
+          }
+          #charts {
+              width: 1200px;
+          }
+          .chart {float: left;}
+        </style>
     </head>
     <body>
-      <div id="chart"></div>        
+        <a href="http://github.com/edsu/wikipulse"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a> 
+        <div id="overview">
+            <div id="title">wikipulse</div>
+            <div id="wikipedia"></div>
+            <div id="summary">edits per minute<br>to Wikipedia</div>
+        </div>
+        <div id="charts">
+        <span class="chart" id="ar-wikipedia"></span>
+        <span class="chart" id="bg-wikipedia"></span>
+        <span class="chart" id="ca-wikipedia"></span>
+        <span class="chart" id="cs-wikipedia"></span>
+        <span class="chart" id="da-wikipedia"></span>
+        <span class="chart" id="de-wikipedia"></span>
+        <span class="chart" id="el-wikipedia"></span>
+        <span class="chart" id="en-wikipedia"></span>
+        <span class="chart" id="eo-wikipedia"></span>
+        <span class="chart" id="es-wikipedia"></span>
+        <span class="chart" id="eu-wikipedia"></span>
+        <span class="chart" id="fa-wikipedia"></span>
+        <span class="chart" id="fi-wikipedia"></span>
+        <span class="chart" id="fr-wikipedia"></span>
+        <span class="chart" id="he-wikipedia"></span>
+        <span class="chart" id="hu-wikipedia"></span>
+        <span class="chart" id="id-wikipedia"></span>
+        <span class="chart" id="it-wikipedia"></span>
+        <span class="chart" id="ja-wikipedia"></span>
+        <span class="chart" id="ko-wikipedia"></span>
+        <span class="chart" id="lt-wikipedia"></span>
+        <span class="chart" id="ms-wikipedia"></span>
+        <span class="chart" id="nl-wikipedia"></span>
+        <span class="chart" id="no-wikipedia"></span>
+        <span class="chart" id="pl-wikipedia"></span>
+        <span class="chart" id="pt-wikipedia"></span>
+        <span class="chart" id="ro-wikipedia"></span>
+        <span class="chart" id="ru-wikipedia"></span>
+        <span class="chart" id="sk-wikipedia"></span>
+        <span class="chart" id="sl-wikipedia"></span>
+        <span class="chart" id="sv-wikipedia"></span>
+        <span class="chart" id="tr-wikipedia"></span>
+        <span class="chart" id="uk-wikipedia"></span>
+        <span class="chart" id="vi-wikipedia"></span>
+        <span class="chart" id="vo-wikipedia"></span>
+        <span class="chart" id="zh-wikipedia"></span>
+        </div>
     </body>
 </html>
