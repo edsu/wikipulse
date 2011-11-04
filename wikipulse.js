@@ -3,8 +3,7 @@ var fs = require('fs'),
     irc = require('irc-js'),
     express = require('express'),
     _ = require('underscore')._,
-    redis = require('redis-url'),
-    ranges = [60000, 300000, 900000, 3600000, 86400000]; // millis
+    redis = require('redis-url');
 
 var db = redis.createClient(process.env.REDISTOGO_URL || "redis://localhost:6379");
 
