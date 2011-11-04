@@ -72,15 +72,5 @@ function purgeOld() {
   setTimeout(purgeOld, dayInMillis);
 }
 
-function zresults(resp) {
-  results = []
-  for (var i=0; i < resp.length; i+=2) {
-    r = JSON.parse(resp[i]);
-    r['score'] = resp[i+1];
-    results.push(r)
-  }
-  return results;
-}
-
 var config = getConfig();
 main();
