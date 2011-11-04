@@ -8,7 +8,7 @@
             google.load("jquery", "1.6.4");
             google.load('visualization', '1', {packages:['gauge']});
             google.setOnLoadCallback(function() {
-              drawChart("wikipedia", 60000, 300, 500, 500)
+              drawChart("wikipedia", 60000, 450, 500, 500)
               $(".chart").each(function(i, e) {
                 wikipedia = $(e).attr("id");
                 drawChart(wikipedia, 60000, 180, 120, 120);
