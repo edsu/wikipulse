@@ -3,8 +3,10 @@ var fs = require('fs'),
     irc = require('irc-js'),
     express = require('express'),
     _ = require('underscore')._,
-    redis = require('redis').createClient(),
+    redis = require('redis'),
     ranges = [60000, 300000, 900000, 3600000, 86400000]; // millis
+
+var db = redis.createClient(process.env.REDISTOGO_URL || 6379);
 
 function main() {
   purgeOld();
@@ -42,21 +44,21 @@ function startWebApp() {
     app.use(express.static(__dirname + '/public'));
   });
   app.get('/stats/:wikipedia/:range.json', getStats);
-  app.listen(config.webServerPort);
+  app.listen(process.env.PORT || config.webServerPort);
 }
 
 function processUpdate(msg) {
   wikipedia = msg.params[0];
   t = new Date().getTime();
-  redis.zadd(wikipedia, t, t);
-  redis.zadd('#wikipedia', t, t);
+  db.zadd(wikipedia, t, t);
+  db.zadd('#wikipedia', t, t);
 }
 
 function getStats(req, res) {
   wikipedia = req.params.wikipedia.replace("-", ".");
   range = req.params.range;
   t = new Date().getTime();
-  redis.zrangebyscore('#' + wikipedia, t - range, t, function(e, r) {
+  db.zrangebyscore('#' + wikipedia, t - range, t, function(e, r) {
     res.send(r.length.toString());
   });
 }
@@ -66,7 +68,7 @@ function purgeOld() {
   var dayInMillis = 1000 * 60 * 60 * 24;
   var cutoff = t - dayInMillis; 
   _.each(config.wikipedias, function(wikipedia) {
-    redis.zremrangebyscore(wikipedia, 0, cutoff);
+    db.zremrangebyscore(wikipedia, 0, cutoff);
   });
   setTimeout(purgeOld, dayInMillis);
 }
