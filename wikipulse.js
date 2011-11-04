@@ -9,7 +9,7 @@ var db = redis.createClient(process.env.REDISTOGO_URL || "redis://localhost:6379
 
 function main() {
   purgeOld();
-  startMonitoring();
+  /*startMonitoring();*/
   startWebApp();
 }
 
@@ -40,6 +40,7 @@ function startWebApp() {
     app.use(express.methodOverride());
     app.use(express.bodyParser());
     app.use(app.router);
+    app.use(express.logger());
     app.use(express.static(__dirname + '/public'));
   });
   app.get('/stats/:wikipedia/:range.json', getStats);
