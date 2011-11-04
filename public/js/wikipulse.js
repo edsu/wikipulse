@@ -1,8 +1,5 @@
 var charts = {};
 
-function addCharts() {
-} 
-
 function drawChart(wikipedia, range, max, height, width) {
   var url = "/stats/" + wikipedia + "/" + range + ".json";
   $.getJSON(url, function(edits) {
