@@ -42,6 +42,7 @@ function startWebApp() {
 function processUpdate(msg) {
   var wikipedia = msg.channel;
   t = new Date().getTime();
+  console.log("zadd " + wikipedia + " " + t)
   db.zadd(wikipedia, t, t, function (e, r) {
     if (e) console.log("error on zadd: " + e);
   });
@@ -71,6 +72,7 @@ function purgeOld() {
     if (e) console.log("unable to purge old for #wikipedia: " + e );
   });
   _.each(config.wikipedias, function(wikipedia) {
+    console.log("zremrangebyscore " + wikipedia + " " + cutoff)
     db.zremrangebyscore(wikipedia, 0, cutoff, function (e, r) {
       if (e) console.log("unable to purge old for " + wikipedia + ": " + e);
     });
