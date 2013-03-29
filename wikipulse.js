@@ -6,6 +6,7 @@ var fs = require('fs'),
     wikichanges = require('wikichanges');
 
 var db = redis.createClient(process.env.REDISTOGO_URL || "redis://localhost:6379");
+db.flushall();
 
 function main() {
   purgeOld();
