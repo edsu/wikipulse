@@ -3,7 +3,8 @@ var fs = require('fs'),
     irc = require('irc-js'),
     express = require('express'),
     _ = require('underscore')._,
-    redis = require('redis-url');
+    redis = require('redis-url'),
+    wikichanges = require('wikichanges');
 
 var db = redis.createClient(process.env.REDISTOGO_URL || "redis://localhost:6379");
 
@@ -19,18 +20,9 @@ function getConfig() {
 }
 
 function startMonitoring() {
-  var client = new irc({
-    server: 'irc.wikimedia.org',
-    nick: config.ircNick,
-    log: config.log,
-    user: {
-      username: config.ircUserName,
-      realname: config.ircRealName
-    }
-  })
-  client.connect(function() {
-    client.join(config.wikipedias);
-    client.on('privmsg', processUpdate);
+  var w = new wikichanges.WikiChanges();
+  w.listen(function(change) {
+    processUpdate(change);
   });
 }
 
@@ -48,7 +40,7 @@ function startWebApp() {
 }
 
 function processUpdate(msg) {
-  wikipedia = msg.params[0];
+  var wikipedia = msg.channel;
   t = new Date().getTime();
   db.zadd(wikipedia, t, t);
   db.zadd('#wikipedia', t, t);

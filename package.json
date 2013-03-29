@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "2.3.x",
-    "redis": "0.6.x",
+    "express": "2.5.x",
+    "redis": "0.8.x",
     "redis-url": "0.0.1",
-    "irc-js": "0.2.x",
-    "underscore": "1.2.x"
+    "underscore": "1.2.x",
+    "wikichanges": "0.0.5"
   }
 }

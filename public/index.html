@@ -8,10 +8,10 @@
             google.load("jquery", "1.6.4");
             google.load('visualization', '1', {packages:['gauge']});
             google.setOnLoadCallback(function() {
-              drawChart("wikipedia", 60000, 600, 500, 500)
+              drawChart("wikipedia", 60000, 1000, 500, 500)
               $(".chart").each(function(i, e) {
                 wikipedia = $(e).attr("id");
-                drawChart(wikipedia, 60000, 200, 120, 120);
+                drawChart(wikipedia, 60000, 300, 120, 120);
               });
             });
         </script>
@@ -115,7 +115,7 @@
         <span class="chart" id="vo-wikipedia"></span>
         <span class="chart" id="zh-wikipedia"></span>
         <span class="chart" id="commons-wikimedia"></span>
-        <span class="chart" id="wikidata-wikimedia"></span>
+        <span class="chart" id="wikidata-wikipedia"></span>
         </div>
     </body>
 </html>
