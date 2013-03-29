@@ -41,8 +41,12 @@ function startWebApp() {
 function processUpdate(msg) {
   var wikipedia = msg.channel;
   t = new Date().getTime();
-  db.zadd(wikipedia, t, t);
-  db.zadd('#wikipedia', t, t);
+  db.zadd(wikipedia, t, t, function (e, r) {
+    console.log("error on zadd: " + e);
+  });
+  db.zadd('#wikipedia', t, t, function (e, r) {
+    console.log("error on zadd #wikipedia" + e);
+  });
 }
 
 function getStats(req, res) {
