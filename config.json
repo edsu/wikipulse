@@ -1,8 +1,8 @@
 {
-  "ircNick": "wikipulse", 
-  "ircUserName": "wikipulse", 
+  "ircNick": "wikipulse-1", 
+  "ircUserName": "wikipulse-1", 
   "ircRealName": "http://github.com/edsu/wikipulse", 
-  "webServerPort": 3000,
+  "webServerPort": 9999,
   "wikipedias": [
     "#ar.wikipedia",
     "#bg.wikipedia",
@@ -40,6 +40,7 @@
     "#vi.wikipedia",
     "#vo.wikipedia",
     "#zh.wikipedia",
-    "#commons.wikimedia"
+    "#commons.wikimedia",
+    "#wikidata.wikipedia
    ]
 }
