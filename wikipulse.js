@@ -1,6 +1,5 @@
 var fs = require('fs'),
     path = require('path'),
-    irc = require('irc-js'),
     express = require('express'),
     _ = require('underscore')._,
     redis = require('redis-url'),
