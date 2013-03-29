@@ -50,8 +50,8 @@ function getStats(req, res) {
   range = req.params.range;
   t = new Date().getTime();
   db.zrangebyscore('#' + wikipedia, t - range, t, function(e, r) {
-    if { 
-      (e) console.log(e);
+    if (e) { 
+      console.log(e);
     } else {
       res.send(r.length.toString());
     }
