@@ -65,11 +65,15 @@ function getStats(req, res) {
 
 function purgeOld() {
   var t = new Date().getTime();
-  var maxTime = 1000 * 10 * 1;
+  var maxTime = 1000 * 60 * 1; // 60 seconds
   var cutoff = t - maxTime; 
-  db.zremrangebyscore('#wikipedia', 0, cutoff);
+  db.zremrangebyscore('#wikipedia', 0, cutoff, function (e,r) {
+    if (e) console.log("unable to purge old for #wikipedia: " + e );
+  });
   _.each(config.wikipedias, function(wikipedia) {
-    db.zremrangebyscore(wikipedia, 0, cutoff);
+    db.zremrangebyscore(wikipedia, 0, cutoff, function (e, r) {
+      if (e) console.log("unable to purge old for " + wikipedia + ": " + e);
+    });
   });
   setTimeout(purgeOld, maxTime);
 }
