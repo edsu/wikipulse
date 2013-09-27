@@ -1,6 +1,6 @@
 var charts = {};
 
-function drawChart(wikipedia, range, max, height, width) {
+function drawChart(wikipedia, range, max) {
   var url = "/stats/" + wikipedia + "/" + range + ".json";
   $.getJSON(url, function(edits) {
     var data = new google.visualization.DataTable();
@@ -10,7 +10,7 @@ function drawChart(wikipedia, range, max, height, width) {
     data.setValue(0, 0, shortName(wikipedia));
     data.setValue(0, 1, edits);
 
-    var options = {width: width, height: height, minorTicks: 10, max: max};
+    var options = {minorTicks: 10, max: max};
     var chart = null;
     if (charts[wikipedia]) {
       chart = charts[wikipedia];
@@ -19,7 +19,7 @@ function drawChart(wikipedia, range, max, height, width) {
       charts[wikipedia] = chart;
     }
     chart.draw(data, options);
-    var draw = 'drawChart("' + wikipedia + '",' + range + "," + max + "," + height + "," + width + ")";
+    var draw = 'drawChart("' + wikipedia + '",' + range + "," + max + ")";
     setTimeout(draw, 1000);
   });
 }
