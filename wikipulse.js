@@ -20,7 +20,7 @@ function getConfig() {
 }
 
 function startMonitoring() {
-  var w = new wikichanges.WikiChanges({channels: config.wikipedias});
+  var w = new wikichanges.WikiChanges({wikipedias: config.wikipedias});
   w.listen(function(change) {
     processUpdate(change);
   });
