@@ -1,6 +1,6 @@
 var charts = {};
 
-function drawChart(wikipedia, range, max, height, width) {
+function drawChart(wikipedia, range, max, height, width, endGreen, endYellow) {
   var url = "/stats/" + wikipedia + "/" + range + ".json";
   $.getJSON(url, function(edits) {
     var data = new google.visualization.DataTable();
@@ -10,7 +10,15 @@ function drawChart(wikipedia, range, max, height, width) {
     data.setValue(0, 0, shortName(wikipedia));
     data.setValue(0, 1, edits);
 
-    var options = {width: width, height: height, minorTicks: 10, max: max};
+    var options = {
+        width: width,
+        height: height,
+        minorTicks: 10,
+        greenFrom: 0, greenTo: endGreen,
+        yellowFrom: endGreen, yellowTo: endYellow,
+        redFrom: endYellow, redTo: max,
+        max: max
+    };
     var chart = null;
     if (charts[wikipedia]) {
       chart = charts[wikipedia];
