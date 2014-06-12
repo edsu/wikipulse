@@ -2,7 +2,9 @@
     <head>
         <title>wikipulse</title>
         <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAoRT7-hYfG4tfwOkCrzrBeRSaVPDDfsqlPb2qAXtI-qSxF2uKqhRhXxkut6P0pr_QcC2rTOU1ad0EWw"></script>
+        <script type="text/javascript"
+                src="https://www.google.com/jsapi?key=ABQIAAAAoRT7-hYfG4tfwOkCrzrBeRSaVPDDfsqlPb2qAXtI-qSxF2uKqhRhXxkut6P0pr_QcC2rTOU1ad0EWw">
+        </script>
         <script type="text/javascript" src="/js/wikipulse.js"></script>
         <script type="text/javascript">
             google.load("jquery", "1.6.4");
@@ -71,51 +73,54 @@
         </script>
     </head>
     <body>
-        <a href="http://github.com/edsu/wikipulse"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a> 
+        <a href="http://github.com/edsu/wikipulse">
+            <img src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+                 alt="Fork me on GitHub" style="position: absolute; top: 0; right: 0; border: 0;"/>
+        </a> 
         <div id="overview">
             <div id="title">wikipulse</div>
             <div id="wikipedia"></div>
-            <div id="summary">edits per minute<br>to Wikipedia</div>
+            <div id="summary">edits per minute<br/>to Wikipedia</div>
         </div>
         <div id="charts">
-        <span class="chart" id="ar-wikipedia"></span>
-        <span class="chart" id="bg-wikipedia"></span>
-        <span class="chart" id="ca-wikipedia"></span>
-        <span class="chart" id="cs-wikipedia"></span>
-        <span class="chart" id="da-wikipedia"></span>
-        <span class="chart" id="de-wikipedia"></span>
-        <span class="chart" id="el-wikipedia"></span>
-        <span class="chart" id="en-wikipedia"></span>
-        <span class="chart" id="eo-wikipedia"></span>
-        <span class="chart" id="es-wikipedia"></span>
-        <span class="chart" id="eu-wikipedia"></span>
-        <span class="chart" id="fa-wikipedia"></span>
-        <span class="chart" id="fi-wikipedia"></span>
-        <span class="chart" id="fr-wikipedia"></span>
-        <span class="chart" id="he-wikipedia"></span>
-        <span class="chart" id="hu-wikipedia"></span>
-        <span class="chart" id="id-wikipedia"></span>
-        <span class="chart" id="it-wikipedia"></span>
-        <span class="chart" id="ja-wikipedia"></span>
-        <span class="chart" id="ko-wikipedia"></span>
-        <span class="chart" id="lt-wikipedia"></span>
-        <span class="chart" id="ms-wikipedia"></span>
-        <span class="chart" id="nl-wikipedia"></span>
-        <span class="chart" id="no-wikipedia"></span>
-        <span class="chart" id="pl-wikipedia"></span>
-        <span class="chart" id="pt-wikipedia"></span>
-        <span class="chart" id="ro-wikipedia"></span>
-        <span class="chart" id="ru-wikipedia"></span>
-        <span class="chart" id="sk-wikipedia"></span>
-        <span class="chart" id="sl-wikipedia"></span>
-        <span class="chart" id="sv-wikipedia"></span>
-        <span class="chart" id="tr-wikipedia"></span>
-        <span class="chart" id="uk-wikipedia"></span>
-        <span class="chart" id="vi-wikipedia"></span>
-        <span class="chart" id="vo-wikipedia"></span>
-        <span class="chart" id="zh-wikipedia"></span>
-        <span class="chart" id="commons-wikimedia"></span>
-        <span class="chart" id="wikidata-wikipedia"></span>
+        <a class="chart" id="ar-wikipedia" href="https://ar.wikipedia.org/wiki/Special:RecentChanges" title="Arabic Wikipedia"></a>
+        <a class="chart" id="bg-wikipedia" href="https://bg.wikipedia.org/wiki/Special:RecentChanges" title="Bulgarian Wikipedia"></a>
+        <a class="chart" id="ca-wikipedia" href="https://ca.wikipedia.org/wiki/Special:RecentChanges" title="Catalan Wikipedia"></a>
+        <a class="chart" id="cs-wikipedia" href="https://cs.wikipedia.org/wiki/Special:RecentChanges" title="Czech Wikipedia"></a>
+        <a class="chart" id="da-wikipedia" href="https://da.wikipedia.org/wiki/Special:RecentChanges" title="Danish Wikipedia"></a>
+        <a class="chart" id="de-wikipedia" href="https://de.wikipedia.org/wiki/Special:RecentChanges" title="German Wikipedia"></a>
+        <a class="chart" id="el-wikipedia" href="https://el.wikipedia.org/wiki/Special:RecentChanges" title="Greek Wikipedia"></a>
+        <a class="chart" id="en-wikipedia" href="https://en.wikipedia.org/wiki/Special:RecentChanges" title="English Wikipedia"></a>
+        <a class="chart" id="eo-wikipedia" href="https://eo.wikipedia.org/wiki/Special:RecentChanges" title="Esperanto Wikipedia"></a>
+        <a class="chart" id="es-wikipedia" href="https://es.wikipedia.org/wiki/Special:RecentChanges" title="Spanish Wikipedia"></a>
+        <a class="chart" id="eu-wikipedia" href="https://eu.wikipedia.org/wiki/Special:RecentChanges" title="Basque Wikipedia"></a>
+        <a class="chart" id="fa-wikipedia" href="https://fa.wikipedia.org/wiki/Special:RecentChanges" title="Persian Wikipedia"></a>
+        <a class="chart" id="fi-wikipedia" href="https://fi.wikipedia.org/wiki/Special:RecentChanges" title="Finnish Wikipedia"></a>
+        <a class="chart" id="fr-wikipedia" href="https://fr.wikipedia.org/wiki/Special:RecentChanges" title="French Wikipedia"></a>
+        <a class="chart" id="he-wikipedia" href="https://he.wikipedia.org/wiki/Special:RecentChanges" title="Hebrew Wikipedia"></a>
+        <a class="chart" id="hu-wikipedia" href="https://hu.wikipedia.org/wiki/Special:RecentChanges" title="Hungarian Wikipedia"></a>
+        <a class="chart" id="id-wikipedia" href="https://id.wikipedia.org/wiki/Special:RecentChanges" title="Indonesian Wikipedia"></a>
+        <a class="chart" id="it-wikipedia" href="https://it.wikipedia.org/wiki/Special:RecentChanges" title="Italian Wikipedia"></a>
+        <a class="chart" id="ja-wikipedia" href="https://ja.wikipedia.org/wiki/Special:RecentChanges" title="Japanese Wikipedia"></a>
+        <a class="chart" id="ko-wikipedia" href="https://ko.wikipedia.org/wiki/Special:RecentChanges" title="Korean Wikipedia"></a>
+        <a class="chart" id="lt-wikipedia" href="https://lt.wikipedia.org/wiki/Special:RecentChanges" title="Lithuanian Wikipedia"></a>
+        <a class="chart" id="ms-wikipedia" href="https://ms.wikipedia.org/wiki/Special:RecentChanges" title="Malay Wikipedia"></a>
+        <a class="chart" id="nl-wikipedia" href="https://nl.wikipedia.org/wiki/Special:RecentChanges" title="Dutch Wikipedia"></a>
+        <a class="chart" id="no-wikipedia" href="https://no.wikipedia.org/wiki/Special:RecentChanges" title="Norwegian Wikipedia"></a>
+        <a class="chart" id="pl-wikipedia" href="https://pl.wikipedia.org/wiki/Special:RecentChanges" title="Polish Wikipedia"></a>
+        <a class="chart" id="pt-wikipedia" href="https://pt.wikipedia.org/wiki/Special:RecentChanges" title="Portuguese Wikipedia"></a>
+        <a class="chart" id="ro-wikipedia" href="https://ro.wikipedia.org/wiki/Special:RecentChanges" title="Romanian Wikipedia"></a>
+        <a class="chart" id="ru-wikipedia" href="https://ru.wikipedia.org/wiki/Special:RecentChanges" title="Russian Wikipedia"></a>
+        <a class="chart" id="sk-wikipedia" href="https://sk.wikipedia.org/wiki/Special:RecentChanges" title="Slovak Wikipedia"></a>
+        <a class="chart" id="sl-wikipedia" href="https://sl.wikipedia.org/wiki/Special:RecentChanges" title="Slovenian Wikipedia"></a>
+        <a class="chart" id="sv-wikipedia" href="https://sv.wikipedia.org/wiki/Special:RecentChanges" title="Swedish Wikipedia"></a>
+        <a class="chart" id="tr-wikipedia" href="https://tr.wikipedia.org/wiki/Special:RecentChanges" title="Turkish Wikipedia"></a>
+        <a class="chart" id="uk-wikipedia" href="https://uk.wikipedia.org/wiki/Special:RecentChanges" title="Ukrainian Wikipedia"></a>
+        <a class="chart" id="vi-wikipedia" href="https://vi.wikipedia.org/wiki/Special:RecentChanges" title="Vietnamese Wikipedia"></a>
+        <a class="chart" id="vo-wikipedia" href="https://vo.wikipedia.org/wiki/Special:RecentChanges" title="Volapük Wikipedia"></a>
+        <a class="chart" id="zh-wikipedia" href="https://zh.wikipedia.org/wiki/Special:RecentChanges" title="Chinese Wikipedia"></a>
+        <a class="chart" id="commons-wikimedia" href="https://commons.wikimedia.org/wiki/Special:RecentChanges" title="Wikimedia Commons"></span>
+        <a class="chart" id="wikidata-wikipedia" href="https://wikidata.org/wiki/Special:RecentChanges" title="Wikidata"></a>
         </div>
     </body>
 </html>
