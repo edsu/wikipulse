@@ -10,10 +10,10 @@
             google.load("jquery", "1.6.4");
             google.load('visualization', '1', {packages:['gauge']});
             google.setOnLoadCallback(function() {
-              drawChart("wikipedia", 60000, 1200, 500, 500, 300, 600);
+              drawChart("wikipedia", 60000, true);
               $(".chart").each(function(i, e) {
                 wikipedia = $(e).attr("id");
-                drawChart(wikipedia, 60000, 300, 120, 120, 60, 180);
+                drawChart(wikipedia, 60000, false);
               });
             });
         </script>
