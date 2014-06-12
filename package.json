@@ -11,6 +11,6 @@
     "redis": "0.8.x",
     "redis-url": "0.0.1",
     "underscore": "1.2.x",
-    "wikichanges": "0.1.2"
+    "wikichanges": ">0.2.0"
   }
 }
