@@ -27,7 +27,7 @@ function drawChart(wikipedia, range, max, height, width, endGreen, endYellow) {
       charts[wikipedia] = chart;
     }
     chart.draw(data, options);
-    var draw = 'drawChart("' + wikipedia + '",' + range + "," + max + "," + height + "," + width + ")";
+    var draw = 'drawChart("' + wikipedia + '",' + range + "," + max + "," + height + "," + width + "," + endGreen + "," + endYellow + ")";
     setTimeout(draw, 1000);
   });
 }
