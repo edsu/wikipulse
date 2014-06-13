@@ -1,6 +1,6 @@
 var charts = {};
 
-function drawChart(wikipedia, range, max, height, width, endGreen, endYellow) {
+function drawChart(wikipedia, range, combined) {
   var url = "/stats/" + wikipedia + "/" + range + ".json";
   $.getJSON(url, function(edits) {
     var data = new google.visualization.DataTable();
@@ -10,15 +10,25 @@ function drawChart(wikipedia, range, max, height, width, endGreen, endYellow) {
     data.setValue(0, 0, shortName(wikipedia));
     data.setValue(0, 1, edits);
 
+    var size = (combined ? 500 : 120),
+        max = (combined ? 1000 : 300),
+        endGreen = (combined ? 600 : 180),  // green = <10 edits/second (global gauge), <3 ed/s (single gauges)
+        endYellow = (combined ? 900 : 240); // yellow = 10-15 ed/s (global gauge), 3-5 ed/s (single gauges)
+                                            // red = >15 ed/s (global gauge), >5 ed/s (single gauges)
     var options = {
-        width: width,
-        height: height,
-        minorTicks: 10,
+        width: size,
+        height: size,
+        max: max,
+        minorTicks: (combined ? 2 : 5),
+        majorTicks: (combined ? ["0","200","","","",max] : ["0","50","","","","",max]),
+        greenColor: "GreenYellow",
         greenFrom: 0, greenTo: endGreen,
+        yellowColor: "Gold",
         yellowFrom: endGreen, yellowTo: endYellow,
-        redFrom: endYellow, redTo: max,
-        max: max
+        redColor: "Tomato",
+        redFrom: endYellow, redTo: max
     };
+
     var chart = null;
     if (charts[wikipedia]) {
       chart = charts[wikipedia];
@@ -27,7 +37,7 @@ function drawChart(wikipedia, range, max, height, width, endGreen, endYellow) {
       charts[wikipedia] = chart;
     }
     chart.draw(data, options);
-    var draw = 'drawChart("' + wikipedia + '",' + range + "," + max + "," + height + "," + width + "," + endGreen + "," + endYellow + ")";
+    var draw = 'drawChart("' + wikipedia + '",' + range + "," + combined + ")";
     setTimeout(draw, 1000);
   });
 }
