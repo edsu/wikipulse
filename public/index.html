@@ -7,15 +7,15 @@
         </script>
         <script type="text/javascript" src="/js/wikipulse.js"></script>
         <script type="text/javascript">
-            google.load("jquery", "1.6.4");
-            google.load('visualization', '1', {packages:['gauge']});
-            google.setOnLoadCallback(function() {
-              drawChart("wikipedia", 60000, true);
-              $(".chart").each(function(i, e) {
-                wikipedia = $(e).attr("id");
-                drawChart(wikipedia, 60000, false);
-              });
+          google.load("jquery", "1.6.4");
+          google.load('visualization', '1', {packages:['gauge']});
+          google.setOnLoadCallback(function() {
+            drawChart("wikipedia", 60000, true);
+            $(".chart").each(function(i, e) {
+              wikipedia = $(e).attr("id");
+              drawChart(wikipedia, 60000, false);
             });
+          });
         </script>
         <style>
           #title {
@@ -42,24 +42,23 @@
           #charts {
               width: 1200px;
           }
-          .chart {float: left;}
-
-
+          .chart {
+            float: left;
+          }
           @media only screen and (max-device-width: 480px) {
-              #charts {
-                display: none;
-                width: 0;
-              }
-              #overview {
-                width: 500px;
-                height: 750px;
-                margin-left: auto;
-                margin-right: auto;
-              }
+            #charts {
+              display: none;
+              width: 0;
+            }
+            #overview {
+              width: 500px;
+              height: 750px;
+              margin-left: auto;
+              margin-right: auto;
+            }
           }
         </style>
         <script type="text/javascript">
-
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', 'UA-16871278-4']);
           _gaq.push(['_trackPageview']);
@@ -69,7 +68,6 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
-
         </script>
     </head>
     <body>
